@@ -8,20 +8,22 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import pages.SearchPage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GoogleTests {
 
     private static WebDriver driver;
+    private static SearchPage searchPage;
 
     @BeforeAll
     public static void init() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
-        driver = ChromeDriver(options);
-
+        driver = new ChromeDriver(options);
+        searchPage = SearchPage(driver);
     }
 
     @Test
@@ -40,7 +42,10 @@ public class GoogleTests {
         driver.findElement(By.xpath ("//*[@jsname='bkEvMb']")).click(); //0
         driver.findElement(By.xpath ("//*[@jsname='WxTTNd']")).click(); ///
         driver.findElement(By.xpath ("//*[@jsname='Ax5wH']")).click(); //5
-        assertEquals(1, driver.findElement());
+        driver.findElement(By.xpath ("//*[@jsname='Pt8tGc']")).click(); //=
+        assertEquals("(1+2)*3-40/5", driver.getExp(By.xpath("//*[@jiname='ubtiRe']"));
+        assertEquals("1", driver.GetResult(By.xpath("//*[@jiname='VssY5c']"));
+
     }
 
     @AfterAll
